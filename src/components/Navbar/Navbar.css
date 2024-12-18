@@ -1,0 +1,59 @@
+/* .navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 4%;
+}
+.navbar .pizzario{
+    width: max(10%,80px);
+
+}
+.navbar .profileImage{
+    width: 50px;
+    height: 50px;
+} 
+
+ */
+
+
+ .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4%; /* Consistent padding with sidebar */
+    border-bottom: 1.5px solid #a9a9a9; /* Optional, for a clean navbar-bottom border */
+}
+
+.navbar .pizzario {
+    width: max(8%, 60px); /* Smaller size for consistency */
+}
+
+.navbar .profileImage {
+    width: 55px; /* Adjusted to match sidebar icon size */
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.navbar .pizzario img, 
+.navbar .profileImage img, 
+.navbar .profileImage svg {
+    width: 100%; /* Ensures icons fit within their containers */
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 8px 2%;
+    }
+
+    .navbar .pizzario {
+        width: max(10%, 50px); /* Adjusted for smaller screens */
+    }
+
+    .navbar .profileImage {
+        width: 28px;
+        height: 28px;
+    }
+}
