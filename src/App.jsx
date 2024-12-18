@@ -1,31 +1,40 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import SIdebar from './components/Sidebar/SIdebar'
-import { Route, Routes } from 'react-router-dom'
-import Orders from './pages/Orders/Orders'
-import List from './pages/List/List'
-import Add from './pages/Add/Add'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-const App = () => {
+import React, { useState } from "react";
+// import React, { useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Cart from "./pages/Cart/Cart";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import Footer from "./components/Footer/Footer";
+import Contact from "./components/ContactUs/Contact.jsx";
+import LoginPopup from "./components/loginPopup/loginPopup.jsx";
+// import MyOrders from "./pages/MyOrders/MyOrders.jsx";
 
-  const url = "http://localhost:4000"
+
+
+const App = () => {
+  const [showLogin,setShowLogin]=useState(false)
 
   return (
-    <div>
-      <ToastContainer/>
-     <Navbar/>
-     <hr />
-     <div className="app-content">
-      <SIdebar/>
-      <Routes>
-        <Route path="/add" element={<Add  url={url}/>}/>
-        <Route path="/list" element={<List url={url}/>}/>
-        <Route path="/orders" element={<Orders url={url}/>}/>
-      </Routes>
-     </div>
-    </div>
-  )
-}
+    <>
+  {showLogin? <LoginPopup setShowLogin={setShowLogin}/>:<></>}
+      <div className="app">
+        <Navbar  setShowLogin={setShowLogin}/>                                    
+        <Routes>
+          <Route path="/" element={<Home />} />
+          
+          {/* <Route path="/order" element={<PlaceOrder />} /> */}
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contactUs" element={<Contact />} />
+          {/* <Route path="/myorders" element={<MyOrders />} /> */}
+        </Routes>
+      </div>
+      <Footer />
+    </>
+  );
+};
 
-export default App
+export default App;
+
+
+//setShowLogin={setShowLogin}//

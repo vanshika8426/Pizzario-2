@@ -1,59 +1,194 @@
-/* .navbar{
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 4%;
-}
-.navbar .pizzario{
-    width: max(10%,80px);
-
-}
-.navbar .profileImage{
-    width: 50px;
-    height: 50px;
-} 
-
- */
-
-
- .navbar {
+.navbar{
+    padding: 20px 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 4%; /* Consistent padding with sidebar */
-    border-bottom: 1.5px solid #a9a9a9; /* Optional, for a clean navbar-bottom border */
 }
 
-.navbar .pizzario {
-    width: max(8%, 60px); /* Smaller size for consistency */
+.navbar .logo{
+    width: 150px;
 }
 
-.navbar .profileImage {
-    width: 55px; /* Adjusted to match sidebar icon size */
-    height: 55px;
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color: #0b0b0a;
+    font-size: 29px;
+    font-weight: 90px;
+}
+
+.navbar-menu a{
+    text-decoration: none;
+    font-size: 20px; /* Increase font size */
+    font-weight: 500; /* Make text bold */
+    padding: 8px 12px; /* Add more padding for spacing */
+    color: #0b0b0a; /* Keep text color consistent */
+    border-radius: 4px; /* Add a subtle border radius for better aesthetics */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+
+.navbar-menu a:hover {
+    background-color: #f7f1ef; /* Add a hover background */
+    color:  #49557e; /* Change text color on hover */
+}
+.navbar-menu .active {
+    border-bottom: 2px solid #49557e; /* Highlight active menu item */
+    color: #49557e; /* Active link color */
+}
+
+.navbar-right{
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 40px;
+}
+.navbar button{
+    font-size: 18px; /* Slightly larger font size for visibility */
+    font-weight: 500; /* Moderate font weight */
+    color: #ffffff; /* White text for better contrast */
+    background-color: rgb(243, 169, 65); /* Vibrant background color */
+    border: none; /* Remove border for a cleaner look */
+    padding: 10px 20px; /* Adequate padding for balance */
+    border-radius: 30px; /* Rounded edges for a modern appearance */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: transform 0.2s, background-color 0.3s; /* Smooth hover and click effects */
+}
+
+.navbar button:hover{
+    /* background-color: #fff4f2; */
+    background-color: #e04c3b; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+
+}
+.navbar button:active {
+    transform: scale(0.95); /* Subtle shrinking effect on click */
+    background-color: #cc3f33; /* Even darker shade for active state */
+}
+
+.navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #49557e;
+}
+
+.navbar li{
     cursor: pointer;
 }
 
-.navbar .pizzario img, 
-.navbar .profileImage img, 
-.navbar .profileImage svg {
-    width: 100%; /* Ensures icons fit within their containers */
-    height: auto;
+.navbar-search-icon{
+    position: relative;
 }
 
-@media (max-width: 900px) {
-    .navbar {
-        padding: 8px 2%;
+.navbar-search-icon .dot{
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 5px;
+    top: -8px;
+    right: -8px;
+}
+@media (max-width:1050px){
+    .navabr .pizzario{
+        width: 140px;
     }
+    .navbar-menu{
+        gap: 20px;
+        font-size: 17px;
+    }
+    .navbar-right{
+        gap: 30px;
+    }
+    .navbar-right img{
+        width: 22px;
+    }
+    .navbar-right button{
+        padding: 8px;
+    }
+}
+@media (max-width:900px){
+    .navabr .pizzario{
+        width: 120px;
+    }
+    .navbar-menu{
+        gap: 15px;
+        font-size: 16px;
+    }
+    .navbar-menu a {
+        font-size: 18px; /* Slightly reduce size on smaller screens */
+        padding: 6px 10px;
+    }
+    .navbar-right{
+        gap: 20px;
+    }
+    .navbar-right img{
+        width: 20px;
+    }
+    .navbar button {
+        font-size: 16px; /* Slightly smaller font for compact screens */
+        padding: 8px 18px; /* Adjusted padding */
+    }
+    .navbar-right button{
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+    .navbar-profile img {
+        width: 25px;
+        height: 25px;
+    }
+}
+.navbar-profile{
+    position: relative;
+}
+.navbar-profile img {
+    width: 70px; /* Reduce the width of the profile icon */
+    height: 70px; /* Maintain a square shape */
+    border-radius: 50%; /* Optional: for circular icons */
+    object-fit: cover; /* Ensures image doesn't stretch */
+}
 
-    .navbar .pizzario {
-        width: max(10%, 50px); /* Adjusted for smaller screens */
+.nav-profile-dropdown{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+    flex-direction: column;
+    gap: 8px; /* Reduce the gap between items */
+    background-color: #fff2ef;
+    padding: 8px 20px; /* Adjust padding to make the dropdown smaller */
+    border-radius: 4px;
+    border: 1px solid tomato; /* Fixed typo: Changed `soild` to `solid` */
+    outline: 2px solid white;
+    list-style: none;
+    font-size: 14px;
+}
+.navbar-profile:hover .nav-profile-dropdown{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff2ef;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px soild tomato;
+    outline: 2px solid white;
+    list-style: none;
+}
+.nav-profile-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.nav-profile-dropdown img{
+    width: 25px;
+    height: 25px; /* Maintain square dimensions */
+    object-fit: cover; 
+}
+.nav-profile-dropdown li:hover{
+    color: tomato;
+}
+@media (max-width:750px){
+    .navbar-menu{
+        display: none;
     }
-
-    .navbar .profileImage {
-        width: 28px;
-        height: 28px;
-    }
+    
 }
